@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PostController;
 use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 
@@ -14,12 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home', [
-        "title" => "Lawaklu",
-        "posts" => Post::all()
-    ]);
-});
+Route::get('/', [PostController::class, 'index']);
+Route::get("posts/{slug}", [PostController::class, 'show']);
 
 Route::get('/account', function () {
     return view('account', [
@@ -48,12 +45,5 @@ Route::get('/manage-meme', function () {
 Route::get('/register', function () {
     return view('register', [
         "title" => "Register"
-    ]);
-});
-
-Route::get("posts/{slug}", function ($slug) {
-    return view("post", [
-        "title" => "Single Post",
-        "post" => Post::find($slug)
     ]);
 });
