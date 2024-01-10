@@ -20,7 +20,7 @@
       Manage memes
     </p>
     <div class="py-4 md:py-0">
-      <a href="/addmeme">
+      <a href="/add-meme">
         <button class="flex-shrink-0 bg-[#B7EB38] hover:bg-[#7BAF00] border-[#B7EB38] hover:border-[#7BAF00] text-sm border-4 text-[#052E16] hover:text-white py-1 px-2 rounded-full transition-colors duration-300 ease-in-out" type="button">
           <span class="text-base">+</span> Add memes
         </button>

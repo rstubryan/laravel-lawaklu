@@ -25,7 +25,7 @@ Route::get('/account', function () {
     ]);
 });
 
-Route::get('/addmeme', function () {
+Route::get('/add-meme', function () {
     return view('addmeme', [
         "title" => "Add memes"
     ]);
@@ -37,7 +37,7 @@ Route::get('/login', function () {
     ]);
 });
 
-Route::get('/managememe', function () {
+Route::get('/manage-meme', function () {
     return view('managememe', [
         "title" => "Manage memes"
     ]);
