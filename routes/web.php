@@ -14,25 +14,37 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('home', [
+        "title" => "Lawaklu"
+    ]);
 });
 
 Route::get('/account', function () {
-    return view('account');
+    return view('account', [
+        "title" => "Account"
+    ]);
 });
 
 Route::get('/addmeme', function () {
-    return view('addmeme');
+    return view('addmeme', [
+        "title" => "Add memes"
+    ]);
 });
 
 Route::get('/login', function () {
-    return view('login');
+    return view('login', [
+        "title" => "Login"
+    ]);
 });
 
 Route::get('/managememe', function () {
-    return view('managememe');
+    return view('managememe', [
+        "title" => "Manage memes"
+    ]);
 });
 
 Route::get('/register', function () {
-    return view('register');
+    return view('register', [
+        "title" => "Register"
+    ]);
 });

@@ -40,7 +40,7 @@
               <button class="bg-[#B7EB38] hover:bg-[#7BAF00] text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
                 Sign Up
               </button>
-              <a class="inline-block align-baseline py-2.5 px-9 text-sm text-black hover:text-gray-400" href="login.html">
+              <a class="inline-block align-baseline py-2.5 px-9 text-sm text-black hover:text-gray-400" href="/login">
                 Sign In
               </a>
             </div>
