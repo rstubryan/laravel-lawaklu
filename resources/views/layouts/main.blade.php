@@ -13,7 +13,7 @@
   <div class="container mx-auto">
     <div class="py-9 mr-10 ml-10">
 
-      <div class="shadow-2xl z-50 sticky top-0">
+      <div class="z-50 sticky top-0">
         @include('partials.navbar')
       </div>
 

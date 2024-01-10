@@ -1,5 +1,5 @@
-<section id="navbar" class="shadow-2xl z-50 sticky top-0">
-  <div class="flex justify-between bg-[#052E16] h-16 rounded-full">
+<section id="navbar" class="">
+  <div class="flex justify-between bg-[#052E16] h-16 rounded-full shadow-2xl">
     <div id="navbar-kiri" class="flex w-full md:px-4 px-2">
       <div class="py-4 px-4">
         <button id="mobile-menu" class="block md:hidden">
