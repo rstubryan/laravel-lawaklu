@@ -47,7 +47,9 @@
                             <p class="flex font-semibold py-2 pr-2">{{ $post->likes }} likes</p>
                             <div class="flex">
                                 <img src="https://placehold.co/40x40" class="rounded-full flex" />
-                                <p class="flex py-2 px-2">{{ $post->author }}</p>
+                                <a href="#">
+                                    <p class="flex py-2 px-2">{{ $post->user->name }}</p>
+                                </a>
                             </div>
                         </div>
                     </div>
