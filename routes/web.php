@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [PostController::class, 'index']);
-Route::get("posts/{slug}", [PostController::class, 'show']);
+Route::get("posts/{post:slug}", [PostController::class, 'show']);
 
 Route::get('/account', function () {
     return view('account', [

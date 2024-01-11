@@ -31,19 +31,19 @@
             <div class="bg-white rounded-br-full px-10 py-6 md:py-9 w-full">
                 <div class="md:px-6 py-3">
                     <div class="py-2">
-                        <a class="flex font-semibold py-2 text-xl" href="/posts/{{ $post["slug"] }}">
-                            {{ $post["title"] }}
+                        <a class="flex font-semibold py-2 text-xl" href="/posts/{{ $post->slug }}">
+                            {{ $post->title }}
                         </a>
                         <div class="flex justify-between rounded-full">
-                            <p class="flex font-semibold py-2 pr-2">{{ $post["likes"] }} likes</p>
+                            <p class="flex font-semibold py-2 pr-2">{{ $post->likes }} likes</p>
                             <div class="flex">
                                 <img src="https://placehold.co/40x40" class="rounded-full flex" />
-                                <p class="flex py-2 px-2">{{ $post["author"] }}</p>
+                                <p class="flex py-2 px-2">{{ $post->author }}</p>
                             </div>
                         </div>
                     </div>
                     <p class="text-justify">
-                        {{ $post["body"] }}
+                        {{ $post->body }}
                     </p>
                 </div>
                 <div class="py-2">
