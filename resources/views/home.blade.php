@@ -5,7 +5,7 @@
     <div class="py-6">
       <div class="w-full">
         <p class="text-[#052E16] font-semibold text-2xl text-center">
-          Meme content
+          {{ $title  }}
         </p>
       </div>
     </div>
