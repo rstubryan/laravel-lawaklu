@@ -23,7 +23,6 @@
                 </p>
             </div>
         </div>
-
         <div class="md:flex shadow-2xl w-full h-full">
             <div class="w-full">
                 <img src="https://placehold.co/600x600" alt="" />
@@ -45,8 +44,8 @@
                             <p class="flex font-semibold py-2 pr-2">{{ $post->likes }} likes</p>
                             <div class="flex">
                                 <img src="https://placehold.co/40x40" class="rounded-full flex" />
-                                <a href="#">
-                                    <p class="flex py-2 px-2">{{ $post->user->name }}</p>
+                                <a href="/authors/{{ $post->author->username }}">
+                                    <p class="flex py-2 px-2">{{ $post->author->name }}</p>
                                 </a>
                             </div>
                         </div>

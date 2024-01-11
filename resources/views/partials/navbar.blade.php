@@ -9,9 +9,11 @@
         </button>
       </div>
       <div class="flex md:py-2 py-3">
-        <h2 class="text-white md:text-3xl text-2xl md:py-1 py-0.5 font-semibold md:block hidden">
-          Lawaklu
-        </h2>
+        <a href="/">
+          <h2 class="text-white md:text-3xl text-2xl md:py-1 py-0.5 font-semibold md:block hidden">
+            Lawaklu
+          </h2>
+        </a>
       </div>
     </div>
 
