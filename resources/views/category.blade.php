@@ -48,7 +48,7 @@
                             <div class="flex">
                                 <img src="https://placehold.co/40x40" class="rounded-full flex" />
                                 <a href="#">
-                                    <p class="flex py-2 px-2">{{ $post->user->name }}</p>
+                                    <p class="flex py-2 px-2">{{ $post->author->name }}</p>
                                 </a>
                             </div>
                         </div>
