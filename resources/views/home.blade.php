@@ -17,10 +17,17 @@
       </div>
       <div class="bg-white rounded-br-full px-10 py-6 md:py-9 w-full">
         <div class="md:px-6 py-3">
-          <div class="py-2">
-            <a class="flex font-semibold py-2 text-xl" href="/posts/{{ $post->slug }}">
-              {{ $post->title }}
-            </a>
+          <div class="">
+            <div class="py-2">
+              <a class="flex font-semibold py-2 text-xl" href="/posts/{{ $post->slug }}">
+                {{ $post->title }}
+              </a>
+              <button class="bg-[#B7EB38] px-2 py-1 rounded-md">
+                <a class="flex text-sm underline text-[#052E16]" href="/categories/{{ $post->category->slug }}">
+                  #{{ $post->category->name }}
+                </a>
+              </button>
+            </div>
             <div class="flex justify-between rounded-full">
               <p class="flex font-semibold py-2 pr-2">{{ $post->likes }} likes</p>
               <div class="flex">

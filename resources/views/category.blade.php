@@ -19,11 +19,13 @@
         <div class="py-6">
             <div class="w-full">
                 <p class="text-[#052E16] font-semibold text-2xl text-center">
-                    Meme content
+                    <a href="">
+                        Category: {{ $category }}
+                    </a>
                 </p>
             </div>
         </div>
-
+        @foreach($posts as $post)
         <div class="md:flex shadow-2xl w-full h-full">
             <div class="w-full">
                 <img src="https://placehold.co/600x600" alt="" />
@@ -79,6 +81,7 @@
         </div>
         <div class="py-6"></div>
         <!-- BATAS ITERASI -->
+        @endforeach
     </section>
 </div>
 @endsection
