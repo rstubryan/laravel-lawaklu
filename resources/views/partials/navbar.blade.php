@@ -10,6 +10,9 @@
       </div>
       <div class="flex md:py-2 py-3">
         <a href="/">
+          <img src="https://raw.githubusercontent.com/rstubryan/assets/master/gambar/lawaklu/logo.png" class="md:h-12 h-10 flex" />
+        </a>
+        <a href="/">
           <h2 class="text-white md:text-3xl text-2xl md:py-1 py-0.5 font-semibold md:block hidden">
             Lawaklu
           </h2>

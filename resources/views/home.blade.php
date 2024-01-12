@@ -16,9 +16,6 @@
         </div>
       </div>
     </div>
-    @else
-    <p class="text-center text-2xl text-[#052E16]">Tidak ada post ditemukan</p>
-    @endif
 
     @foreach($posts as $post)
     <div class="md:flex shadow-2xl w-full h-full">
@@ -81,4 +78,7 @@
     @endforeach
   </section>
 </div>
+@else
+<p class="text-center text-2xl text-[#052E16]">Tidak ada post ditemukan</p>
+@endif
 @endsection

@@ -25,7 +25,7 @@
         </div>
         <div class="md:flex flex-col shadow-2xl w-full h-full">
             <div class="w-full">
-                <img src="https://placehold.co/600x600" alt="" />
+                <img src="https://placehold.co/1200x600" alt="" />
             </div>
             <div class="bg-white rounded-br-full px-10 py-6 md:py-9 w-full">
                 <div class="md:px-6 py-3">
