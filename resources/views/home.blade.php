@@ -2,13 +2,23 @@
 @section('content')
 <div>
   <section id="content">
-    <div class="py-6">
+    @if ($posts->count())
+    <div class="py-12">
       <div class="w-full">
         <p class="text-[#052E16] font-semibold text-2xl text-center">
           {{ $title  }}
         </p>
+        <div class="text-center py-2">
+          <span class="text-[#052E16]">Latest of all post</span>
+          <a href="#">
+            <p class="text-[#052E16] rounded-md px-1">{{ $posts[0]->created_at->diffForHumans() }}</p>
+          </a>
+        </div>
       </div>
     </div>
+    @else
+    <p class="text-center text-2xl text-[#052E16]">Tidak ada post ditemukan</p>
+    @endif
 
     @foreach($posts as $post)
     <div class="md:flex shadow-2xl w-full h-full">
