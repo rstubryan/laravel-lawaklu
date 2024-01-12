@@ -81,4 +81,8 @@
 @else
 <p class="text-center text-2xl text-[#052E16]">Tidak ada post ditemukan</p>
 @endif
+
+<div class="py-6">
+  {{ $posts->links() }}
+</div>
 @endsection
