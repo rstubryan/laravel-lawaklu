@@ -1,10 +1,12 @@
 <?php
 
-use App\Http\Controllers\PostController;
-use App\Models\Category;
 use App\Models\Post;
 use App\Models\User;
+use App\Models\Category;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +22,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [PostController::class, 'index']);
 Route::get("posts/{post:slug}", [PostController::class, 'show']);
 
+Route::get('/login', [LoginController::class, 'index']);
+
+Route::get('/register', [RegisterController::class, 'index']);
+Route::post('/register', [RegisterController::class, 'store']);
+
 Route::get('/categories', function () {
     return view('categories', [
         "title" => "Meme categories",
@@ -30,14 +37,14 @@ Route::get('/categories', function () {
 Route::get('/authors/{author:username}', function (User $author) {
     return view('home', [
         "title" => "Post by Author : $author->name",
-        "posts" => $author->posts->load('category', 'author'),
+        "posts" => $author->posts()->latest()->paginate(6)->withQueryString(),
     ]);
 });
 
 Route::get('/categories/{category:slug}', function (Category $category) {
     return view('home', [
         "title" => "Post by Category : $category->name",
-        "posts" => $category->posts->load('category', 'author')
+        "posts" => $category->posts()->latest()->paginate(6)->withQueryString(),
     ]);
 });
 
@@ -53,20 +60,8 @@ Route::get('/add-meme', function () {
     ]);
 });
 
-Route::get('/login', function () {
-    return view('login', [
-        "title" => "Login"
-    ]);
-});
-
 Route::get('/manage-meme', function () {
     return view('managememe', [
         "title" => "Manage memes"
-    ]);
-});
-
-Route::get('/register', function () {
-    return view('register', [
-        "title" => "Register"
     ]);
 });

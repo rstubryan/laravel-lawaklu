@@ -13,8 +13,15 @@
   <div class="container mx-auto">
     <div class="flex flex-col items-center justify-center h-screen">
       <div class="grid">
+
+        @if(session()->has("success"))
+        <div class="bg-green-500 p-4 rounded-lg mb-6 text-white text-center">
+          {{ session("success") }}
+        </div>
+        @endif
+
         <div class="w-full max-w-xs">
-          <form class="bg-white shadow-2xl rounded px-8 pt-6 pb-8 mb-4" method="post">
+          <form class="bg-white shadow-2xl rounded px-8 pt-6 pb-8 mb-4" method="post" action="/login">
             <div class="py-4">
               <h2 class="text-center font-semibold text-2xl">Login</h2>
             </div>
