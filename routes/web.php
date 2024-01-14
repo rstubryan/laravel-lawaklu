@@ -6,6 +6,7 @@ use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\AccountController;
 use App\Http\Controllers\RegisterController;
 
 /*
@@ -22,9 +23,14 @@ use App\Http\Controllers\RegisterController;
 Route::get('/', [PostController::class, 'index']);
 Route::get("posts/{post:slug}", [PostController::class, 'show']);
 
-Route::get('/login', [LoginController::class, 'index']);
+Route::get('/account', [AccountController::class, 'index'])->middleware('auth');
 
-Route::get('/register', [RegisterController::class, 'index']);
+Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
+Route::post('/login', [LoginController::class, 'authenticate']);
+
+Route::post('/logout', [LoginController::class, 'logout']);
+
+Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store']);
 
 Route::get('/categories', function () {
@@ -45,12 +51,6 @@ Route::get('/categories/{category:slug}', function (Category $category) {
     return view('home', [
         "title" => "Post by Category : $category->name",
         "posts" => $category->posts()->latest()->paginate(6)->withQueryString(),
-    ]);
-});
-
-Route::get('/account', function () {
-    return view('account', [
-        "title" => "Account"
     ]);
 });
 

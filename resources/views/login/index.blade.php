@@ -20,8 +20,15 @@
         </div>
         @endif
 
+        @if(session()->has("loginError"))
+        <div class="bg-red-500 p-4 rounded-lg mb-6 text-white text-center">
+          {{ session("loginError") }}
+        </div>
+        @endif
+
         <div class="w-full max-w-xs">
           <form class="bg-white shadow-2xl rounded px-8 pt-6 pb-8 mb-4" method="post" action="/login">
+            @csrf
             <div class="py-4">
               <h2 class="text-center font-semibold text-2xl">Login</h2>
             </div>
@@ -29,14 +36,19 @@
               <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
                 E-mail
               </label>
-              <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" type="text" placeholder="E-mail" />
+              <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="email" id="email" type="email" placeholder="E-mail" required autofocus />
+              @error('email')
+              <p class="text-red-500 text-xs italic">{{ $message }}</p>
+              @enderror
             </div>
             <div class="mb-6">
               <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
                 Password
               </label>
-              <input class="shadow appearance-none rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="******************" />
-
+              <input class="shadow appearance-none rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" name="password" id="password" type="password" placeholder="*****" required />
+              @error('password')
+              <p class="text-red-500 text-xs italic">{{ $message }}</p>
+              @enderror
               <div class="py-0.5">
                 <button class="text-sm text-gray-400 hover:text-gray-200">
                   <a href="#">Forgot password?</a>
