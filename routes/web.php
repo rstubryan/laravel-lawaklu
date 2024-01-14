@@ -21,7 +21,7 @@ use App\Http\Controllers\DashboardController;
 */
 
 Route::get('/', [PostController::class, 'index']);
-Route::get("posts/{post:slug}", [PostController::class, 'show']);
+Route::get("post/{post:slug}", [PostController::class, 'show']);
 
 Route::get('/account', function () {
     return view('account.index', [
@@ -54,14 +54,14 @@ Route::get('/categories', function () {
 
 Route::get('/authors/{author:username}', function (User $author) {
     return view('home', [
-        "title" => "Post by Author : $author->name",
+        "title" => "Post by $author->username",
         "posts" => $author->posts()->latest()->paginate(6)->withQueryString(),
     ]);
 });
 
 Route::get('/categories/{category:slug}', function (Category $category) {
     return view('home', [
-        "title" => "Post by Category : $category->name",
+        "title" => "Category by $category->name",
         "posts" => $category->posts()->latest()->paginate(6)->withQueryString(),
     ]);
 });
@@ -69,11 +69,5 @@ Route::get('/categories/{category:slug}', function (Category $category) {
 Route::get('/add-meme', function () {
     return view('addmeme', [
         "title" => "Add memes"
-    ]);
-});
-
-Route::get('/manage-meme', function () {
-    return view('managememe', [
-        "title" => "Manage memes"
     ]);
 });

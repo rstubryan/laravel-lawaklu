@@ -26,28 +26,32 @@
         <div class="md:px-6 py-3">
           <div class="">
             <div class="py-2">
-              <a class="flex font-semibold py-2 text-xl" href="/posts/{{ $post->slug }}">
+              <a class="flex font-semibold py-2 text-xl" href="/post/{{ $post->slug }}">
                 {{ $post->title }}
               </a>
-              <button class="bg-[#B7EB38] px-2 py-1 rounded-md">
-                <a class="flex text-sm underline text-[#052E16]" href="/categories/{{ $post->category->slug }}">
-                  #{{ $post->category->name }}
-                </a>
-              </button>
+              <div class="py-2">
+                <button class="bg-[#B7EB38] px-2 py-1 rounded-md">
+                  <a class="flex text-sm underline text-[#052E16]" href="/categories/{{ $post->category->slug }}">
+                    #{{ $post->category->name }}
+                  </a>
+                </button>
+              </div>
             </div>
-            <div class="flex justify-between rounded-full">
-              <p class="flex font-semibold py-2 pr-2">{{ $post->likes }} likes</p>
+            <div class="flex justify-between rounded-full py-2 items-center">
+              <p class="flex font-semibold pr-2">{{ $post->likes }} likes</p>
               <div class="flex">
-                <img src="https://placehold.co/40x40" class="rounded-full flex" />
-                <a href="/authors/{{ $post->author->username }}">
-                  <p class="flex py-2 px-2">{{ $post->author->name }}</p>
-                </a>
+                <p class="text-justify">
+                  {{ $post->created_at->diffForHumans() }}
+                </p>
               </div>
             </div>
           </div>
-          <p class="text-justify">
-            {{ $post->body }}
-          </p>
+          <div class="flex items-center py-2">
+            <img src="https://placehold.co/40x40" class="rounded-full flex" />
+            <a href="/authors/{{ $post->author->username }}">
+              <p class="flex py-2 px-2">{{ $post->author->username }}</p>
+            </a>
+          </div>
         </div>
         <div class="py-2">
           <button class="md:px-5 pr-2">
@@ -79,7 +83,7 @@
   </section>
 </div>
 @else
-<p class="text-center text-2xl text-[#052E16]">Tidak ada post ditemukan</p>
+<p class="py-6 text-center text-2xl text-[#052E16]">Tidak ada post ditemukan</p>
 @endif
 <div class="py-6">
   {{ $posts->links() }}

@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('title');
             $table->string('slug')->unique();
             $table->string('likes')->default(0);
-            $table->text('body');
             $table->timestamp('published_at')->nullable();
             $table->timestamps();
         });

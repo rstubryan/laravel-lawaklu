@@ -46,9 +46,9 @@
                             </td>
                             <td class="text-center">{{ $post->category->name }}</td>
                             <td>
-                                <div class="md:flex md:justify-between">
+                                <div class="md:flex md:justify-between items-center">
                                     <div class="flex px-4">
-                                        <a href="/posts/{{ $post->slug }}">
+                                        <a href="/post/{{ $post->slug }}">
                                             <button>
                                                 <div class="">
                                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">

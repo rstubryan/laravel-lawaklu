@@ -60,7 +60,7 @@
             </svg>
             <a href="/account">
               <h2 class="text-[#052E16] font-semibold text-base py-5 px-3 block">
-                {{ auth()->user()->name }}
+                {{ auth()->user()->username }}
               </h2>
             </a>
           </div>
@@ -112,7 +112,6 @@
           sidebar.classList.add("hidden");
         });
 
-        // Tutup sidebar jika link di dalamnya diklik (opsional)
         const sidebarLinks = sidebar.querySelectorAll("a");
         sidebarLinks.forEach(link => {
           link.addEventListener("click", () => {
@@ -143,7 +142,7 @@
           <div>
             <button type="button" class="inline-flex w-full justify-center gap-x-1.5 rounded-md px-3 py-2 text-lg font-semibold text-[#B7EB38] shadow-sm" id="menu-button" aria-expanded="false" aria-haspopup="true">
               @auth
-              <p class="md:block hidden"> {{ auth()->user()->name }} </p>
+              <p class="md:block hidden"> {{ auth()->user()->username }} </p>
               @else
               <p class="md:block hidden"> Profile </p>
               @endauth
