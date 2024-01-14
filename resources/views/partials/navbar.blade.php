@@ -119,12 +119,12 @@
             sidebar.classList.add("hidden");
           });
         });
-      });
+      }); 
     </script>
 
     <div class="flex w-full md:py-3 py-4 justify-end md:px-10 px-6 md:gap-5 gap-0">
       <button id="button-addmemes" class="bg-[#B7EB38] hover:bg-[#7BAF00] rounded-full md:px-4 px-2 transition-colors duration-300 ease-in-out">
-        <a href="/manage-meme">
+        <a href="/dashboard">
           <div class="flex text-[#052E16] hover:text-white">
             <div class="md:py-0.5 px-1">
               <p class="text-2xl">+</p>
