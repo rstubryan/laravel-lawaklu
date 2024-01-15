@@ -21,7 +21,6 @@ class PostFactory extends Factory
             'category_id' => mt_rand(1, 2),
             'user_id' => mt_rand(1, 5),
             'slug' => $this->faker->slug(),
-            'likes' => $this->faker->numberBetween(0, 200),
         ];
     }
 }
