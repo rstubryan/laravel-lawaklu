@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DashboardPostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,7 +35,7 @@ Route::get('/dashboard', function () {
     ]);
 })->middleware(['auth']);
 
-Route::resource('dashboard', DashboardController::class)->middleware(['auth']);
+Route::resource('/dashboard/posts', DashboardPostController::class)->middleware(['auth']);
 
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);
@@ -63,11 +63,5 @@ Route::get('/categories/{category:slug}', function (Category $category) {
     return view('home', [
         "title" => "Category by $category->name",
         "posts" => $category->posts()->latest()->paginate(6)->withQueryString(),
-    ]);
-});
-
-Route::get('/add-meme', function () {
-    return view('addmeme', [
-        "title" => "Add memes"
     ]);
 });
