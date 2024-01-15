@@ -19,6 +19,16 @@
         <p class="text-[#052E16] font-semibold text-2xl text-center">
             Dashboard
         </p>
+        @if(session()->has('success'))
+        <div class="py-4">
+            <div class="w-full">
+                <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
+                    <strong class="font-bold">Success!</strong>
+                    <span class="block sm:inline">{{ session('success') }}</span>
+                </div>
+            </div>
+        </div>
+        @endif
         <div class="py-4 md:py-0">
             <a href="/dashboard/posts/create">
                 <button class="flex-shrink-0 bg-[#B7EB38] hover:bg-[#7BAF00] border-[#B7EB38] hover:border-[#7BAF00] text-sm border-4 text-[#052E16] hover:text-white py-1 px-2 rounded-full transition-colors duration-300 ease-in-out" type="button">

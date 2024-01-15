@@ -28,13 +28,19 @@
             <div class="py-2">
                 <label for="title" class="text-justify">Judul</label>
                 <div class="flex items-center border-b border-gray-300 py-2">
-                    <input class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none" type="text" id="title" name="title" placeholder="Judul meme-mu" />
+                    <input class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none" type="text" id="title" name="title" placeholder="Judul meme-mu" required autofocus/>
+                    @error('title')
+                    <p class="text-red-500 text-xs italic">{{ $message }}</p>
+                    @enderror
                 </div>
             </div>
             <div class="py-2">
                 <label for="slug" class="text-justify">Slug</label>
                 <div class="flex items-center border-b border-gray-300 py-2">
-                    <input class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none" type="text" id="slug" name="slug" placeholder="Slug otomatis" disabled />
+                    <input class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none" type="text" id="slug" name="slug" placeholder="Slug otomatis" disabled required/>
+                    @error('slug')
+                    <p class="text-red-500 text-xs italic">{{ $message }}</p>
+                    @enderror
                 </div>
             </div>
             <div class="py-2">

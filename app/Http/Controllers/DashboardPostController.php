@@ -36,7 +36,16 @@ class DashboardPostController extends Controller
      */
     public function store(Request $request)
     {
-        return $request;
+        $validatedData = $request->validate([
+            "title" => "required|max:255",
+            "slug" => "unique:posts",
+            "category_id" => "required",
+        ]);
+
+        $validatedData["user_id"] = auth()->user()->id;
+
+        Post::create($validatedData);
+        return redirect("/dashboard/posts")->with("success","Berhasil di post!");
     }
 
     /**
