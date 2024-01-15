@@ -45,7 +45,7 @@ class DashboardPostController extends Controller
         $validatedData["user_id"] = auth()->user()->id;
 
         Post::create($validatedData);
-        return redirect("/dashboard/posts")->with("success","Berhasil di post!");
+        return redirect("/dashboard/posts")->with("success", "Berhasil dipost!");
     }
 
     /**
@@ -80,7 +80,8 @@ class DashboardPostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        Post::destroy($post->id);
+        return redirect("/dashboard/posts")->with("success", "Berhasil dihapus!");
     }
 
     public function checkSlug(Request $request)
