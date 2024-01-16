@@ -15,20 +15,26 @@
     </div>
 </section>
 <section id="manage-meme">
-    <div class="py-0 w-full">
+    <div class="py-4 w-full">
         <p class="text-[#052E16] font-semibold text-2xl text-center">
             Welcome to Dashboard, {{ auth()->user()->username }}
         </p>
-        <a href="/dashboard/posts/create">
-            <button class="flex-shrink-0 bg-[#B7EB38] hover:bg-[#7BAF00] border-[#B7EB38] hover:border-[#7BAF00] text-sm border-4 text-[#052E16] hover:text-white py-1 px-2 rounded-full transition-colors duration-300 ease-in-out" type="button">
-                <span class="text-base">+</span> Add memes
-            </button>
-        </a>
-        <a href="/dashboard/posts">
-            <button class="flex-shrink-0 bg-[#B7EB38] hover:bg-[#7BAF00] border-[#B7EB38] hover:border-[#7BAF00] text-sm border-4 text-[#052E16] hover:text-white py-1 px-2 rounded-full transition-colors duration-300 ease-in-out" type="button">
-                <span class="text-base">+</span> Manage memes
-            </button>
-        </a>
+        <div class="py-10 flex gap-5 justify-center">
+            <div>
+                <a href="/dashboard/posts/create">
+                    <button class="flex-shrink-0 bg-[#B7EB38] hover:bg-[#7BAF00] border-[#B7EB38] hover:border-[#7BAF00] text-sm border-4 text-[#052E16] hover:text-white py-1 px-2 rounded-full transition-colors duration-300 ease-in-out" type="button">
+                        <span class="text-base">+</span> Add memes
+                    </button>
+                </a>
+            </div>
+            <div>
+                <a href="/dashboard/posts">
+                    <button class="flex-shrink-0 bg-[#B7EB38] hover:bg-[#7BAF00] border-[#B7EB38] hover:border-[#7BAF00] text-sm border-4 text-[#052E16] hover:text-white py-1 px-2 rounded-full transition-colors duration-300 ease-in-out" type="button">
+                        <span class="text-base">+</span> Manage memes
+                    </button>
+                </a>
+            </div>
+        </div>
     </div>
 </section>
 @endsection
