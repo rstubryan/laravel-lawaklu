@@ -27,10 +27,11 @@
         <div class="py-4">
             <div class="py-2">
                 <label for="image" class="text-justify">Gambar</label>
+                <img id="img-preview" class="w-full h-full object-cover">
                 <div class="flex items-center border-b border-gray-300 py-2">
                     <span class="sr-only">Choose File</span>
-                    <input type="file" id="image" name="image" class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-[#B7EB38] file:text-[#052E16] hover:file:bg-[#7BAF00]" />
-                    @error('image   ')
+                    <input onchange="previewImage()" type="file" id="image" name="image" class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-[#B7EB38] file:text-[#052E16] hover:file:bg-[#7BAF00]" />
+                    @error('image')
                     <p class="text-red-500 text-xs italic">{{ $message }}</p>
                     @enderror
                 </div>
@@ -71,6 +72,22 @@
         </div>
     </form>
 </section>
+
+<script>
+    function previewImage() {
+        const image = document.querySelector('#image');
+        const imgPreview = document.querySelector('#img-preview');
+
+        imgPreview.style.display = 'block';
+
+        const oFReader = new FileReader();
+        oFReader.readAsDataURL(image.files[0]);
+
+        oFReader.onload = function(oFREvent) {
+            imgPreview.src = oFREvent.target.result;
+        }
+    }
+</script>
 
 <script>
     const title = document.querySelector('#title');
