@@ -24,9 +24,9 @@
             </div>
         </div>
         <div class="md:flex flex-col shadow-2xl w-full h-full">
-            <div class="w-full">
+            <div class="w-full flex justify-center items-center">
                 @if($post->image)
-                <img class="w-full h-full object-cover" src="{{ asset('storage/' . $post->image) }}" alt="" />
+                <img class="h-full w-max object-cover" src="{{ asset('storage/' . $post->image) }}" alt="" />
                 @else
                 <img class="w-full h-full object-cover" src="https://placehold.co/600x600" alt="" />
                 @endif
