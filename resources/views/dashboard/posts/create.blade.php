@@ -22,9 +22,19 @@
             </p>
         </div>
     </div>
-    <form action="/dashboard/posts" method="post">
+    <form action="/dashboard/posts" method="post" enctype="multipart/form-data">
         @csrf
         <div class="py-4">
+            <div class="py-2">
+                <label for="image" class="text-justify">Gambar</label>
+                <div class="flex items-center border-b border-gray-300 py-2">
+                    <span class="sr-only">Choose File</span>
+                    <input type="file" id="image" name="image" class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-[#B7EB38] file:text-[#052E16] hover:file:bg-[#7BAF00]" />
+                    @error('image   ')
+                    <p class="text-red-500 text-xs italic">{{ $message }}</p>
+                    @enderror
+                </div>
+            </div>
             <div class="py-2">
                 <label for="title" class="text-justify">Judul</label>
                 <div class="flex items-center border-b border-gray-300 py-2">
