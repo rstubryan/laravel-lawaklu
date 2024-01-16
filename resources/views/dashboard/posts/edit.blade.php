@@ -22,14 +22,30 @@
             </p>
         </div>
     </div>
-    <form action="/dashboard/posts/{{ $post->slug }}" method="post">
+    <form action="/dashboard/posts/{{ $post->slug }}" method="post" enctype="multipart/form-data">
         @method('put')
         @csrf
         <div class="py-4">
             <div class="py-2">
+                <label for="image" class="text-justify">Gambar</label>
+                <input type="hidden" name="oldImage" value="{{ $post->image }}">
+                @if($post->image)
+                <img id="img-preview" class="w-full h-full object-cover" src="{{ asset('storage/' . $post->image) }}" alt="" />
+                @else
+                <img id="img-preview" class="w-full h-full object-cover" />
+                @endif
+                <div class="flex items-center border-b border-gray-300 py-2">
+                    <span class="sr-only">Choose File</span>
+                    <input onchange="previewImage()" type="file" id="image" name="image" class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-[#B7EB38] file:text-[#052E16] hover:file:bg-[#7BAF00]" />
+                    @error('image')
+                    <p class="text-red-500 text-xs italic">{{ $message }}</p>
+                    @enderror
+                </div>
+            </div>
+            <div class="py-2">
                 <label for="title" class="text-justify">Judul</label>
                 <div class="flex items-center border-b border-gray-300 py-2">
-                    <input class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none" type="text" id="title" name="title" placeholder="Judul meme-mu" required autofocus value="{{ $post->title }}"/>
+                    <input class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none" type="text" id="title" name="title" placeholder="Judul meme-mu" required autofocus value="{{ $post->title }}" />
                     @error('title')
                     <p class="text-red-500 text-xs italic">{{ $message }}</p>
                     @enderror
@@ -38,7 +54,7 @@
             <div class="py-2">
                 <label for="slug" class="text-justify">Slug</label>
                 <div class="flex items-center border-b border-gray-300 py-2">
-                    <input class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none" type="text" id="slug" name="slug" placeholder="Slug otomatis" value="{{ $post->slug }}"/>
+                    <input class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none" type="text" id="slug" name="slug" placeholder="Slug otomatis" value="{{ $post->slug }}" />
                     @error('slug')
                     <p class="text-red-500 text-xs italic">{{ $message }}</p>
                     @enderror
@@ -47,10 +63,10 @@
             <div class="py-2">
                 <label for="category" class="text-justify">Kategori</label>
                 <div class="flex items-center border-b border-gray-300 py-2">
-                    <select class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none" type="text" name="category_id" placeholder="Pilih kategori" value="{{ $post->category_id }}"/>
-                        @foreach($categories as $category)
-                        <option value="{{ $category->id }}">{{ $category->name }}</option>
-                        @endforeach
+                    <select class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none" type="text" name="category_id" placeholder="Pilih kategori" value="{{ $post->category_id }}" />
+                    @foreach($categories as $category)
+                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                    @endforeach
                     </select>
                 </div>
             </div>
@@ -62,6 +78,22 @@
         </div>
     </form>
 </section>
+
+<script>
+    function previewImage() {
+        const image = document.querySelector('#image');
+        const imgPreview = document.querySelector('#img-preview');
+
+        imgPreview.style.display = 'block';
+
+        const oFReader = new FileReader();
+        oFReader.readAsDataURL(image.files[0]);
+
+        oFReader.onload = function(oFREvent) {
+            imgPreview.src = oFREvent.target.result;
+        }
+    }
+</script>
 
 <script>
     const title = document.querySelector('#title');
