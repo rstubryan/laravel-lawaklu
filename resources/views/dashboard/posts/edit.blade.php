@@ -30,9 +30,13 @@
                 <label for="image" class="text-justify">Gambar</label>
                 <input type="hidden" name="oldImage" value="{{ $post->image }}">
                 @if($post->image)
-                <img id="img-preview" class="w-full h-full object-cover" src="{{ asset('storage/' . $post->image) }}" alt="" />
+                <div class="w-full flex justify-center items-center">
+                    <img id="img-preview" class="w-max h-full object-cover" src="{{ asset('storage/' . $post->image) }}" alt="" />
+                </div>
                 @else
-                <img id="img-preview" class="w-full h-full object-cover" />
+                <div class="w-full flex justify-center items-center">
+                    <img id="img-preview" class="h-full w-max object-cover">
+                </div>
                 @endif
                 <div class="flex items-center border-b border-gray-300 py-2">
                     <span class="sr-only">Choose File</span>
