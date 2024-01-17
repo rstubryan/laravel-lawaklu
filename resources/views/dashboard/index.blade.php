@@ -37,4 +37,23 @@
         </div>
     </div>
 </section>
+
+@can('admin')
+<section id="manage-meme-admin">
+    <div class="py-4 w-full">
+        <p class="text-[#052E16] font-semibold text-2xl text-center">
+            Admin panel
+        </p>
+        <div class="py-10 flex gap-5 justify-center">
+            <div>
+                <a href="/dashboard/categories">
+                    <button class="flex-shrink-0 bg-[#B7EB38] hover:bg-[#7BAF00] border-[#B7EB38] hover:border-[#7BAF00] text-sm border-4 text-[#052E16] hover:text-white py-1 px-2 rounded-full transition-colors duration-300 ease-in-out" type="button">
+                        <span class="text-base">+</span> Add Categories
+                    </button>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+@endcan
 @endsection
