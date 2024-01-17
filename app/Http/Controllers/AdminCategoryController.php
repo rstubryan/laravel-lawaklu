@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Post;
 use Illuminate\Http\Request;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
 
@@ -75,8 +76,20 @@ class AdminCategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        // Periksa apakah ada post yang menggunakan kategori ini
+        $postsWithCategory = Post::where('category_id', $category->id)->exists();
+
+        // Jika ada post yang menggunakan kategori ini, kembalikan dengan pesan error
+        if ($postsWithCategory) {
+            return redirect("/dashboard/categories")->with("error", "Tidak dapat menghapus kategori ini karena masih digunakan oleh satu atau lebih post.");
+        }
+
+        // Jika tidak ada post yang menggunakan kategori ini, lanjutkan dengan penghapusan
+        Category::destroy($category->id);
+
+        return redirect("/dashboard/categories")->with("success", "Berhasil dihapus!");
     }
+
 
     public function checkSlug(Request $request)
     {
