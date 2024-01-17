@@ -17,11 +17,11 @@
 <div class="pb-6">
     <div class="w-full">
         <p class="text-[#052E16] font-semibold text-2xl text-center">
-            Profile
+            Profile (On Development)
         </p>
     </div>
 </div>
-<section id="profile-photo" class="flex items-center justify-center">
+<!-- <section id="profile-photo" class="flex items-center justify-center">
     <div class="">
         <div class="w-full">
             <button>
@@ -32,13 +32,21 @@
             </button>
         </div>
     </div>
-</section>
+</section> -->
 <section id="profile-info">
+    <div class="py-2">
+        <form class="w-full">
+            <p class="text-justify">Name</p>
+            <div class="flex items-center border-b border-gray-300 py-2">
+                <input disabled class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none" type="text" placeholder="Name account" aria-label="Name" />
+            </div>
+        </form>
+    </div>
     <div class="py-2">
         <form class="w-full">
             <p class="text-justify">Username</p>
             <div class="flex items-center border-b border-gray-300 py-2">
-                <input class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none" type="text" placeholder="Username account" aria-label="Username" />
+                <input disabled class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none" type="text" placeholder="Username account" aria-label="Username" />
             </div>
         </form>
     </div>
@@ -46,7 +54,7 @@
         <form class="w-full">
             <label class="text-justify" for="email">E-mail</label>
             <div class="flex items-center border-b border-gray-300 py-2">
-                <input class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none" type="email" id="email" placeholder="E-mail account" aria-label="Email" disabled />
+                <input disabled class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none" type="email" id="email" placeholder="E-mail account" aria-label="Email" disabled />
                 <button class="flex-shrink-0 bg-[#B7EB38] hover:bg-[#7BAF00] border-[#B7EB38] hover:border-[#7BAF00] text-sm border-4 text-[#052E16] hover:text-white py-1 px-2 rounded-full transition-colors duration-300 ease-in-out" type="button">
                     Edit
                 </button>
@@ -57,7 +65,7 @@
         <form class="w-full">
             <label class="text-justify" for="password">Password</label>
             <div class="flex items-center border-b border-gray-300 py-2">
-                <input class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none" type="password" id="password" placeholder="*********" aria-label="Password" disabled />
+                <input disabled class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none" type="password" id="password" placeholder="*********" aria-label="Password" disabled />
                 <button class="flex-shrink-0 bg-[#B7EB38] hover:bg-[#7BAF00] border-[#B7EB38] hover:border-[#7BAF00] text-sm border-4 text-[#052E16] hover:text-white py-1 px-2 rounded-full transition-colors duration-300 ease-in-out" type="button">
                     Edit
                 </button>
