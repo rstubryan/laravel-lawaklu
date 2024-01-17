@@ -19,7 +19,6 @@
         <p class="text-[#052E16] font-semibold text-2xl text-center">
             Manage categories
         </p>
-
         @if(session()->has('error'))
         <div class="py-4">
             <div class="w-full">
@@ -30,7 +29,6 @@
             </div>
         </div>
         @endif
-
         @error('delete')
         <div class="py-4">
             <div class="w-full">
@@ -41,9 +39,6 @@
             </div>
         </div>
         @enderror
-
-
-
         @if(session()->has('success'))
         <div class="py-4">
             <div class="w-full">
@@ -75,7 +70,7 @@
                         @foreach($categories as $category)
                         <tr>
                             <td class="text-center">{{ $loop->iteration }}</td>
-                            <td class="text-center">{{ $category->name }}</td>
+                            <td class="text-center px-12">{{ $category->name }}</td>
                             <td>
                                 <div class="md:flex md:justify-between items-center">
                                     <div class="flex px-4">
