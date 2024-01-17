@@ -118,8 +118,13 @@ class DashboardPostController extends Controller
             Storage::delete($post->image);
         }
 
-        Post::destroy($post->id);
-        return redirect("/dashboard/posts")->with("success", "Berhasil dihapus!");
+        if ($admin = auth()->user()->is_admin) {
+            Post::destroy($post->id);
+            return redirect("/dashboard/manage-post")->with("success", "Berhasil dihapus!");
+        } else {
+            Post::destroy($post->id);
+            return redirect("/dashboard/posts")->with("success", "Berhasil dihapus!");
+        }
     }
 
     public function checkSlug(Request $request)

@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\AdminPostController;
 use App\Http\Controllers\AdminCategoryController;
 use App\Http\Controllers\DashboardPostController;
 
@@ -46,6 +47,8 @@ Route::post('/logout', [LoginController::class, 'logout']);
 
 Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store']);
+
+Route::resource('/dashboard/manage-post', AdminPostController::class)->except('show')->middleware('admin');
 
 Route::resource('/dashboard/categories', AdminCategoryController::class)->except('show')->middleware('admin');
 Route::get('/dashboard/categories/checkSlug', [AdminCategoryController::class, 'checkSlug'])->middleware(['auth']);

@@ -67,13 +67,16 @@
             <div class="py-2">
                 <label for="category" class="text-justify">Kategori</label>
                 <div class="flex items-center border-b border-gray-300 py-2">
-                    <select class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none" type="text" name="category_id" placeholder="Pilih kategori" value="{{ $post->category_id }}" />
-                    @foreach($categories as $category)
-                    <option value="{{ $category->id }}">{{ $category->name }}</option>
-                    @endforeach
+                    <select class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none" type="text" name="category_id" placeholder="Pilih kategori">
+                        @foreach($categories as $category)
+                        <option value="{{ $category->id }}" {{ old('category_id', $post->category_id) == $category->id ? 'selected' : '' }}>
+                            {{ $category->name }}
+                        </option>
+                        @endforeach
                     </select>
                 </div>
             </div>
+
         </div>
         <div class="flex justify-center">
             <button class="flex-shrink-0 bg-[#B7EB38] hover:bg-[#7BAF00] border-[#B7EB38] hover:border-[#7BAF00] text-sm border-4 text-[#052E16] hover:text-white py-1 px-2 rounded-full transition-colors duration-300 ease-in-out" type="submit">

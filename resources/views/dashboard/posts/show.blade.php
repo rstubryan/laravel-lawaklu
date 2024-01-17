@@ -32,6 +32,7 @@
                         </svg>
                         <p class="px-2">Update post</p>
                     </button>
+                </form>
             </div>
             <div class="px-4 bg-[#B7EB38] rounded-full">
                 <form action="/dashboard/posts/{{ $post->slug }}" method="post">
@@ -43,8 +44,8 @@
                         </svg>
                         <p class="px-2">Delete post</p>
                     </button>
+                </form>
             </div>
-            </form>
         </div>
 </div>
 <div class="md:flex flex-col shadow-2xl w-full h-full">
