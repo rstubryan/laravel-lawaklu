@@ -7,6 +7,7 @@
   <title>{{ $title }}</title>
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
 
 <body class="bg-[#EDF3F1]">
@@ -28,6 +29,10 @@
       max-width: 1200px;
     }
   </style>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
 </body>
 
 </html>
